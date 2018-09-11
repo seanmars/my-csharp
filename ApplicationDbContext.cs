@@ -25,14 +25,6 @@ namespace AdminSite.Data
             builder.Entity<IdentityUserLogin<int>>().ToTable("UserLogins");
             builder.Entity<IdentityRoleClaim<int>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserToken<int>>().ToTable("UserTokens");
-            // or 
-            // builder.Entity<IdentityUser<int>>().ToTable("users");
-            // builder.Entity<IdentityRole<int>>().ToTable("roles");
-            // builder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
-            // builder.Entity<IdentityUserRole<int>>().ToTable("user_roles");
-            // builder.Entity<IdentityUserLogin<int>>().ToTable("user_logins");
-            // builder.Entity<IdentityRoleClaim<int>>().ToTable("role_claims");
-            // builder.Entity<IdentityUserToken<int>>().ToTable("user_tokens");
         }
     }
 }
