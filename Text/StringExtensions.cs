@@ -25,6 +25,7 @@ public static class StringExtension
 
         return System.Text.Encoding.Unicode.GetString(bytes);
     }
+    
     public static string ToSnakeCase(this string input)
     {
         if (string.IsNullOrEmpty(input))
