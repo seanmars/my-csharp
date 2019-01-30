@@ -26,17 +26,14 @@ public static class StringExtension
         return System.Text.Encoding.Unicode.GetString(bytes);
     }
     
-    public static string ToSnakeCase(this string input)
+    public static string ToSnakeCase(this string input, bool removeSpace = false)
     {
-        if (string.IsNullOrEmpty(input))
-        {
-            return input;
-        }
+        if (string.IsNullOrEmpty(input)) { return input; }
 
-        var startUnderscores = System.Text.RegularExpressions.Regex.Match(input, @"^_+");
-
-        return startUnderscores + System.Text.RegularExpressions.Regex
-            .Replace(input, @"([a-z0-9])([A-Z])", "$1_$2")
+        var startUnderscores = Regex.Match(input, @"^_+");
+        return startUnderscores +
+            Regex.Replace(input, @"([a-z0-9])([A-Z\s])", "$1_$2")
+            .Replace(" ", "")
             .ToLower();
     }
 
@@ -44,6 +41,7 @@ public static class StringExtension
     {
         return System.Globalization.CultureInfo.InvariantCulture.TextInfo
             .ToTitleCase(input.ToLowerInvariant().Trim())
+            .Replace(" ", "")
             .Replace("_", "")
             .Replace("-", "")
             .Replace(".", "");
