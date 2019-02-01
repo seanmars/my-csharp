@@ -26,24 +26,25 @@ public static class StringExtension
         return System.Text.Encoding.Unicode.GetString(bytes);
     }
     
-    public static string ToSnakeCase(this string input, bool removeSpace = false)
-    {
-        if (string.IsNullOrEmpty(input)) { return input; }
+    public static string ToSnakeCase(this string input)
+        {
+            if (string.IsNullOrEmpty(input)) { return input; }
 
-        var startUnderscores = Regex.Match(input, @"^_+");
-        return startUnderscores +
-            Regex.Replace(input, @"([a-z0-9])([A-Z\s])", "$1_$2")
-            .Replace(" ", "")
-            .ToLower();
-    }
+            var startUnderscores = Regex.Match(input, @"^_+");
+            return startUnderscores +
+                Regex.Replace(input, @"([a-z0-9])([A-Z\s])", "$1_$2")
+                .Replace(" ", "")
+                .ToLower();
+        }
 
-    public static string ToTitleCase(this string input)
-    {
-        return System.Globalization.CultureInfo.InvariantCulture.TextInfo
-            .ToTitleCase(input.ToLowerInvariant().Trim())
-            .Replace(" ", "")
-            .Replace("_", "")
-            .Replace("-", "")
-            .Replace(".", "");
-    }
+        public static string ToTitleCase(this string input)
+        {
+            input = Regex.Replace(input, @"([a-z0-9])([A-Z\s])", "$1 $2");
+            return System.Globalization.CultureInfo.InvariantCulture.TextInfo
+                .ToTitleCase(input.ToLowerInvariant().Trim())
+                .Replace(" ", "")
+                .Replace("_", "")
+                .Replace("-", "")
+                .Replace(".", "");
+        }
 }
