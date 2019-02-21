@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public static class TaskExtensions
+public static class EnumerableExtensions
 {
     public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> source, int chunksize)
     {
