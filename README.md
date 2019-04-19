@@ -35,3 +35,5 @@ Some utils for csharp
   .NET Core email sending
 - [FastReport](https://github.com/FastReports/FastReport)
   Reporting tool for .NET Core/.NET Framework that helps your application generate document-like reports
+- [JWTSimpleServer](https://github.com/Xabaril/JWTSimpleServer)
+  A lightweight, dynamic jwt server for ASP.NET Core
