@@ -6,10 +6,9 @@ Some utils for csharp
 在 [The history of C#](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history) 中可以看到 `dotnet core sdk` 的版本可以對應用哪個版本的 C#
 
 
-## .csproj for .NET Core
+## csproj 格式
 
 建置時複製檔案
-
 
 ```xml
   <ItemGroup>
@@ -19,6 +18,11 @@ Some utils for csharp
     </Content>
   </ItemGroup>
 ```
+
+References:
+
+- [適用於 .NET Core 之 csproj 格式的新增項目](https://docs.microsoft.com/zh-tw/dotnet/core/tools/csproj)
+- [project.json 與 csproj 屬性的對應](https://docs.microsoft.com/zh-tw/dotnet/core/tools/project-json-to-csproj)
 
 ## .NET Standard/.NET Core/.NET Framework/C#
 
