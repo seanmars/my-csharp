@@ -1,32 +1,45 @@
 using System;
 using System.IO;
-using AdminCore.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
-namespace AdminSite.Data
+public class DatabaseConfiguration
 {
-    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    [Required]
+    public string Server { get; set; } = "127.0.0.1";
+
+    [Required]
+    public string Port { get; set; } = "3306";
+
+    [Required]
+    public string Database { get; set; }
+
+    [Required]
+    public string User { get; set; }
+
+    [Required]
+    public string Password { get; set; }
+
+    public string ConnectString()
     {
-        public ApplicationDbContext CreateDbContext(string[] args)
-        {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("database.json")
-                .Build();
-            var databaseConfig = configuration.Get<DatabaseConfiguration>();
+        return $"server={Server};port={Port};database={Database};user={User};password={Password}";
+    }
+}
 
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseMySql(databaseConfig.ConnectString(),
-                    mysqlOptions =>
-                    {
-                        mysqlOptions.ServerVersion(new Version(8, 0), ServerType.MySql);
-                    }
-                );
+public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+{
+    public ApplicationDbContext CreateDbContext(string[] args)
+    {
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("database.json")
+            .Build();
+        var databaseConfig = configuration.Get<DatabaseConfiguration>();
 
-            return new ApplicationDbContext(optionsBuilder.Options);
-        }
+        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseMySQL(databaseConfig.ConnectString());
+
+        return new ApplicationDbContext(optionsBuilder.Options);
     }
 }
