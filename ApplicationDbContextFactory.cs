@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 public class DatabaseConfiguration
 {
@@ -38,7 +39,10 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
         var databaseConfig = configuration.Get<DatabaseConfiguration>();
 
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseMySQL(databaseConfig.ConnectString());
+            .UseMySql(databaseConfig.ConnectString(), mySqlOptions =>
+            {
+                mySqlOptions.ServerVersion(new Version(8, 0, 0), ServerType.MySql);
+            });
 
         return new ApplicationDbContext(optionsBuilder.Options);
     }
