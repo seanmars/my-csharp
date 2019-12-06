@@ -34,6 +34,7 @@ References:
 - [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 - [Target frameworks](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
 - [.NET Framework versions and dependencies](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/versions-and-dependencies)
+- [C# language versioning](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version)
 
 | LangVersion | .NET Standard | .NET Core | .NET Framework |
 | ----------- | ------------- | --------- | -------------- |
