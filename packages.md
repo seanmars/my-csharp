@@ -18,3 +18,5 @@
   Nano ID is a library for generating random IDs. Likewise UUID, there is a probability of duplicate IDs. However, this probability is extremely small.
 - [Hashids](https://github.com/ullmark/hashids.net)
   Hashids is a small open-source library that generates short, unique, non-sequential ids from numbers.
+- [Config.Net](https://github.com/aloneguid/config) Config.Net - the easiest configuration framework for .NET developers
+- [NGettext](https://github.com/VitaliiTsilnyk/NGettext) A cross-platform .NET implementation of the GNU/Gettext library.
