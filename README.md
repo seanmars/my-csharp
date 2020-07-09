@@ -54,3 +54,7 @@ References:
 ## Packages
 
 [Packages](packages.md)
+
+## TODOs
+
+- https://stackoverflow.com/questions/399798/memory-efficiency-and-performance-of-string-replace-net-framework
