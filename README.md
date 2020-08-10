@@ -1,10 +1,15 @@
 # my-csharp
+
+- [Packages](packages.md)
+- [Awesome tools](awesome-tools.md)
+
+## Utils
+
 Some utils for csharp
 
 - .NET Core and C#
 
 在 [The history of C#](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history) 中可以看到 `dotnet core sdk` 的版本可以對應用哪個版本的 C#
-
 
 ## csproj 格式
 
@@ -49,11 +54,6 @@ References:
 | C# 7.3      | 2.0           | 2.1       |                |
 | C# 7.3      | 2.0           | 2.2       |                |
 | C# 8.0      | 2.1           | 3.0       | 4.8            |
-
-
-## Packages
-
-[Packages](packages.md)
 
 ## TODOs
 
